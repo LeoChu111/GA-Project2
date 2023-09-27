@@ -2,4 +2,12 @@
 <% for(let post of posts) { %>
     <h2><a href="/posts/<%= post.id %>"><%= post.content %></a></h2>
     <img src="<%= post.image_url %>" alt="">
+    <form action="/posts/<%= post.id %>/like" method="post">
+        <input type="hidden" name="_method" value="put">
+        <button>Like</button><span><%= post.likes%></span>
+    </form>
+    <form action="/posts/<%= post.id %>/dislike" method="post">
+        <input type="hidden" name="_method" value="put">
+        <button>Dislike</button><span><%= post.dislikes%></span>
+    </form>
 <% } %>

@@ -1,0 +1,10 @@
+<h2>Edit post</h2>
+
+<form action="/posts/<%= post.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <label for="">Content</label>
+    <input name="content" type="text" value="<%= post.content %>">
+    <label for="">image url</label>
+    <input name="image_url" type="text" value="<%= post.image_url %>">
+    <button>Update</button>
+</form>

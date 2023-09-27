@@ -1,0 +1,15 @@
+<h2>Post details</h2>
+<p><%= post.content %></p>
+<% if (post.image_url) { %>
+    <img src="<%= post.image_url %>" alt="">
+<% } %>
+
+<form action="/posts/<%= post.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <% if(userId === post.user_id) { %>
+        <button>Delete</button>
+    <% } %>
+</form>
+<% if(userId === post.user_id) { %>
+    <a href="/posts/<%= post.id %>/edit">Edit post</a>
+<% } %>

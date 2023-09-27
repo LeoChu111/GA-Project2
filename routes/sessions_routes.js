@@ -22,7 +22,7 @@ router.post('/login', (req, res) => {
 
         bcrypt.compare(userInputPassword, hashedPasswordFromDb, (err, result) => {
             if(result) {
-                req.session.email = dbRes.rows[0].email
+                req.session.userId = dbRes.rows[0].id
                 return res.redirect('/')
             } else {
                 return res.render('login')
@@ -31,7 +31,7 @@ router.post('/login', (req, res) => {
     })
 })
 router.delete('/logout', (req, res) => {
-    req.session.email = null
+    req.session.userId = null
     res.redirect('/login')
 })
 

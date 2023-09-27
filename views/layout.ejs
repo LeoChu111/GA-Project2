@@ -8,14 +8,13 @@
 </head>
 <body>
     <img src="https://img.freepik.com/premium-vector/cute-cat-postman-cartoon-illustration-animal-profession-concept-isolated-flat-cartoon-style_138676-3418.jpg?w=2000" alt="">
-    <% if (email) { %>
-        <%= user.email %>
+    <% if (userId) { %>
+        <a href="/posts/mypage"><%= user.email %></a>
     <% } %>
     <nav>
         <a href="/">home</a>
-        <a href="/">My page</a>
         <a href="/posts/new">Create post</a>
-        <% if (email) { %>
+        <% if (userId) { %>
             <form action="/logout" method="post">
                 <input type="hidden" name="_method" value="delete">
                 <button>logout</button>

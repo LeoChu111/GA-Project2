@@ -1,5 +1,5 @@
 function ensureLoggedIn(req, res, next) {
-    if(req.session.email) {
+    if(req.session.userId) {
         return next()
     }
     res.redirect('/login')
