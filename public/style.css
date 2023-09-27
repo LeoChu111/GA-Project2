@@ -4,3 +4,7 @@ body {
 img {
     width: 150px;
 }
+#post_content {
+    height:200px;
+    font-size:14pt;
+}

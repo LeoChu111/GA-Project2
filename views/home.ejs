@@ -1,2 +1,5 @@
 <h1>Hi</h1>
-
+<% for(let post of posts) { %>
+    <h2><a href="/posts/<%= post.id %>"><%= post.content %></a></h2>
+    <img src="<%= post.image_url %>" alt="">
+<% } %>

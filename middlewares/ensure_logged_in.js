@@ -1,6 +1,5 @@
 function ensureLoggedIn(req, res, next) {
-    if(req.session.userId) {
-        res.session.message = 'you need fill in the form first'
+    if(req.session.email) {
         return next()
     }
     res.redirect('/login')

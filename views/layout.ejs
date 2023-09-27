@@ -7,13 +7,24 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+    <img src="https://img.freepik.com/premium-vector/cute-cat-postman-cartoon-illustration-animal-profession-concept-isolated-flat-cartoon-style_138676-3418.jpg?w=2000" alt="">
+    <% if (email) { %>
+        <%= user.email %>
+    <% } %>
     <nav>
         <a href="/">home</a>
         <a href="/">My page</a>
-        <a href="/">share</a>
+        <a href="/posts/new">Create post</a>
+        <% if (email) { %>
+            <form action="/logout" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button>logout</button>
+            </form>
+        <% } else { %>
+            <a href="/login">login</a>
+        <% } %>
         <a href="/signup">signup</a>
     </nav>
-    <img src="https://img.freepik.com/premium-vector/cute-cat-postman-cartoon-illustration-animal-profession-concept-isolated-flat-cartoon-style_138676-3418.jpg?w=2000" alt="">
     <h1>home</h1>
     <%- body %>
 </body>
