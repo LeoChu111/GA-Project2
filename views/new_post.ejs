@@ -1,9 +1,8 @@
 <h2>Create a new post</h2>
 
-<form action="/posts" method="post">
-    <label for="">Content</label>
-    <input name="content" type="text" id="post_content">
-    <label for="">image url</label>
-    <input name="image_url" type="text">
-    <button>Publish</button>
+<form action="/posts" method="post" enctype="multipart/form-data">
+    <input name="content" type="text" class="post_content" placeholder="What is happening?!">
+    <label for="">Upload image</label>
+    <input name="image_url" type="file">
+    <button class="formButton">Publish</button>
 </form>

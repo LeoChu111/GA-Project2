@@ -1,13 +1,22 @@
-<h1>Hi</h1>
 <% for(let post of posts) { %>
-    <h2><a href="/posts/<%= post.id %>"><%= post.content %></a></h2>
-    <img src="<%= post.image_url %>" alt="">
-    <form action="/posts/<%= post.id %>/like" method="post">
-        <input type="hidden" name="_method" value="put">
-        <button>Like</button><span><%= post.likes%></span>
-    </form>
-    <form action="/posts/<%= post.id %>/dislike" method="post">
-        <input type="hidden" name="_method" value="put">
-        <button>Dislike</button><span><%= post.dislikes%></span>
-    </form>
+    <article class="grid-wrapper">
+        <a href="/posts/user/<%=post.user_id %>/post"><p><%= post.username %></p></a>
+        <p><a href="/posts/<%= post.id %>"><%= post.content %></a></p>
+        <img src="<%= post.image_url %>" alt="">
+        <p>Comment:</p>
+        <p><%= post.comment %></p>
+        <form action="/posts/<%= post.id %>/like" method="post" class="postbutton-wrapper">
+            <input type="hidden" name="_method" value="put">
+            <button class="likes"><i class="fa-solid fa-thumbs-up"></i>&nbsp;<span><%= post.likes%></span></button>
+        </form>
+        <form action="/posts/<%= post.id %>/dislike" method="post" class="postbutton-wrapper">
+            <input type="hidden" name="_method" value="put">
+            <button class="likes"><i class="fa-solid fa-thumbs-down"></i>&nbsp;<span><%= post.dislikes%></span></button>
+        </form>
+        <form action="/posts/<%= post.id %>/comment" method="post" class="postbutton-wrapper">
+            <input type="hidden" name="_method" value="put">
+            <input type="text" class="comment" name="comment" placeholder="Write a comment......">
+            <button class="likes">comment</button>
+        </form>
+    </article>
 <% } %>

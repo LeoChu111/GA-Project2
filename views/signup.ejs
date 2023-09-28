@@ -1,14 +1,14 @@
 <h2>sign up</h2>
 
 <form action="/users" method="post">
-    <label for="">email</label>
+    <label for="">Email</label>
     <input name="email" type="text">
     <% if (prompt) { %>
         <h2><%= prompt %></h2>
     <% } %>
     <label for="">Username</label>
     <input name="username" type="text">
-    <label for="">password</label>
+    <label for="">Password</label>
     <input name="password" type="password">
-    <button>signup</button>
+    <button class="formButton">Signup</button>
 </form>

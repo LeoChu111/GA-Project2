@@ -9,7 +9,6 @@ const postsRoute = require('./routes/posts_routes')
 const session = require('express-session')
 const expressEjsLayouts = require('express-ejs-layouts')
 const requestMethodOverride = require('./middlewares/request_methodoverride')
-const ensureLoggedIn = require('./middlewares/ensure_logged_in')
 const requestLogger = require('./middlewares/request_logger')
 const setCurrentUser = require('./middlewares/set_current_user')
 

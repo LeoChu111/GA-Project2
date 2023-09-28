@@ -1,10 +1,10 @@
 <h2>Edit post</h2>
 
-<form action="/posts/<%= post.id %>" method="post">
+<form action="/posts/<%= post.id %>/edit" method="post" enctype="multipart/form-data">
     <input type="hidden" name="_method" value="put">
     <label for="">Content</label>
-    <input name="content" type="text" value="<%= post.content %>">
+    <input name="content" class="post_content" type="text" value="<%= post.content %>">
     <label for="">image url</label>
-    <input name="image_url" type="text" value="<%= post.image_url %>">
-    <button>Update</button>
+    <input name="image_url" type="file">
+    <button class="formButton">Update</button>
 </form>

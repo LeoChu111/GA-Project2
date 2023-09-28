@@ -7,24 +7,26 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <img src="https://img.freepik.com/premium-vector/cute-cat-postman-cartoon-illustration-animal-profession-concept-isolated-flat-cartoon-style_138676-3418.jpg?w=2000" alt="">
-    <% if (userId) { %>
-        <a href="/posts/mypage"><%= user.email %></a>
-    <% } %>
-    <nav>
-        <a href="/">home</a>
-        <a href="/posts/new">Create post</a>
+    <nav class="navbar">
+        <a href="/"><img src="https://res.cloudinary.com/dpokug3s4/image/upload/v1695867929/file-upload/yhryudpvrbehll6kcro8.png" id="trademark" alt=""></a>
+        <a href="/"><i class="fa fa-fw fa-home"></i>&nbsp;Home</a>
+        <a href="/posts/new"><i class="fa-sharp fa-solid fa-plus"></i>&nbsp;Create post</a>
+        <a href="/signup"><i class="fa-solid fa-user-plus"></i>&nbsp;Signup</a>
+        <div class="form-wrapper">
         <% if (userId) { %>
-            <form action="/logout" method="post">
+            <form action="/logout" method="post" class="form-wrapper">
+                <a href="/posts/mypage"><i class="fa-solid fa-cat"></i>&nbsp;<%= user.email %></a>
                 <input type="hidden" name="_method" value="delete">
-                <button>logout</button>
+                <button>Logout</button>
             </form>
         <% } else { %>
-            <a href="/login">login</a>
+                <a href="/login" class="form-wrapper"><i class="fa-solid fa-user"></i>&nbsp;Login</a>
         <% } %>
-        <a href="/signup">signup</a>
+        </div>
     </nav>
-    <h1>home</h1>
-    <%- body %>
+    <div class="body-wrapper">
+        <%- body %>
+    </div>
+    <script src= "<%= process.env.FONTAWESOME %>" crossorigin="anonymous"></script>
 </body>
 </html>

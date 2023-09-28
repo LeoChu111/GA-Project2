@@ -1,15 +1,29 @@
-<h2>Post details</h2>
-<p><%= post.content %></p>
-<% if (post.image_url) { %>
+<article class="grid-wrapper">
+    <h1><%=post.username %></h1>
+    <h2><%= post.content %></h2>
     <img src="<%= post.image_url %>" alt="">
-<% } %>
-
-<form action="/posts/<%= post.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
+    <p>Comment:</p>
+    <p><%= post.comment %></p>
+    <form action="/posts/<%= post.id %>/like" method="post" class="postbutton-wrapper">
+        <input type="hidden" name="_method" value="put">
+        <button class="likes"><i class="fa-solid fa-thumbs-up"></i>&nbsp;<span><%= post.likes%></span></button>
+    </form>
+    <form action="/posts/<%= post.id %>/dislike" method="post" class="postbutton-wrapper">
+        <input type="hidden" name="_method" value="put">
+        <button class="likes"><i class="fa-solid fa-thumbs-down"></i>&nbsp;<span><%= post.dislikes%></span></button>
+    </form>
+    <form action="/posts/<%= post.id %>/comment" method="post" class="postbutton-wrapper">
+        <input type="hidden" name="_method" value="put">
+        <input type="text" class="comment" name="comment" placeholder="Write a comment......">
+        <button class="likes">comment</button>
+    </form>
+    <form action="/posts/<%= post.id %>" method="post" class="postbutton-wrapper">
+        <input type="hidden" name="_method" value="delete">
+        <% if(userId === post.user_id) { %>
+            <button class="formButton">Delete Post</button>
+        <% } %>
+    </form>
     <% if(userId === post.user_id) { %>
-        <button>Delete</button>
+        <a href="/posts/<%= post.id %>/edit"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Edit post</a>
     <% } %>
-</form>
-<% if(userId === post.user_id) { %>
-    <a href="/posts/<%= post.id %>/edit">Edit post</a>
-<% } %>
+</article>

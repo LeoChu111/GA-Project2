@@ -1,6 +1,6 @@
-<h1>My page</h1>
 <% for(let post of posts) { %>
     <article class="grid-wrapper">
+        <h1><%=post.username  %>'s page</h1>
         <h2><a href="/posts/<%= post.pid %>"><%= post.content %></a></h2>
         <img src="<%= post.image_url %>" alt="">
         <p>Comment:</p>
