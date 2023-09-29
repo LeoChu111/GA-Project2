@@ -1,4 +1,4 @@
-CREATE DATABASE goodfoodhunting;
+CREATE DATABASE posty;
 
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,

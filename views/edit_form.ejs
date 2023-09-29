@@ -1,7 +1,6 @@
 <h2>Edit post</h2>
 
-<form action="/posts/<%= post.id %>/edit" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="_method" value="put">
+<form method="post" action="/posts/<%= post.id %>/edit?_method=PUT" enctype="multipart/form-data">
     <label for="">Content</label>
     <input name="content" class="post_content" type="text" value="<%= post.content %>">
     <label for="">image url</label>
